@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 well">
+    <h3 class="text-center">Εγγραφή</h3>
+    <br>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <%= resource.errors.full_messages.first %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :"Ονομ/μο*" %>
+        <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Ονομα/πώνυμο' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :"Email*" %>
+        <%= f.email_field :email, class: 'form-control', placeholder: 'email@example.com' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"Κωδικός*" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br>
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: 'password' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"Επιβεβαίωση κωδικού*" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off', placeholder: 'Επιβεβαίωση κωδικού' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :"Γενέθλια" %>
+        <%= f.date_field :birthday, max: Date.today-4080, min: Date.today-6870,  class: 'form-control', placeholder: 'π.χ. 01/02/2001' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :"Φύλο*" %><br>
+        <%= f.select :sex, options_for_seasons, class: 'form-control', prompt: 'Select One' %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Εγγραφή', class: 'btn btn-success' %>
+      </div>
+    <% end %>
+    <br>
+    <%= render 'devise/shared/links' %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<% @blog_posts.each do |post| %>
+	<div id="sidebar">
+		<ul>
+			<li class="category">Teenager</li>
+			<li><%= link_to "Blog", blog_posts_path %></li>
+			<!-- <li><% link_to "ΣΧΕΤΙΚΑ", about_path %></li> -->
+		</ul>
+
+		<ul>
+			<li class="category">2016</li>
+			<li>Ιανουάριος 0</li>
+			<li>Φεβρουάριος 0</li>
+			<li>Μάρτιος 0</li>
+		</ul>
+	</div>
+
+	<div id="main_content">
+		<div id="header">
+			<div class="post_wrapper">
+				<div class="alert">
+					<div class="form-group"><h2 class="title"><%= link_to post.title, post %></h2></div>
+					<div class="form-group"><p class="body"><%= truncate(post.body, :length => 80) %></p></div>
+					<div class="pull-right"><p class="date"><%= post.created_at.strftime("%D") %></p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+

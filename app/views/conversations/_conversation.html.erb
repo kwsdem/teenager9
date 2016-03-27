@@ -1,0 +1,14 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <br><%= render 'shared/avatar', user: conversation.originator %>
+      <%= conversation.originator.name %><small><b> και </b></small>
+        <%= conversation.recipients.first.name %>
+      <div class="pull-right">
+      <small><b>Ημερομηνία: </b><%=  conversation.messages.last.created_at.strftime("%D, %H:%M") %></small></div>
+    </h4>
+    <h4>Θέμα:</h4> <%= truncate conversation.subject %>
+    <%= link_to "Άνοιγμα", conversation_path(conversation)  %>
+  </div>
+</div>
+

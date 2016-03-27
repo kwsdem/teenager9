@@ -1,0 +1,20 @@
+<div class="activity-follow">
+  <div class="follower">
+    <%= render 'shared/avatar', user: activity.owner %>
+    <h4 class="name"><% if activity.owner.sex == "female" %>
+      Η <%= activity.owner.name %>
+    <% else %>
+      Ο <%= activity.owner.name %>
+    <% end %></h4>
+    <span class="action">ακολούθησε <% if activity.trackable.followable.sex == "female" %>
+      την <%= activity.trackable.followable.name %>
+    <% else %>
+      τον <%= activity.trackable.followable.name %>
+    <% end %></span>
+  </div>
+  <div class="followee">
+    <%= render 'shared/avatar', user: activity.trackable.followable %>
+    <h4 class="name"><%= activity.trackable.followable.name %></h4>
+  </div>
+  <%= render 'shared/created_at', activity: activity %>
+</div>

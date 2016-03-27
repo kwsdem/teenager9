@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: cloudiname
+  api_key: '196278668649748'
+  api_secret: wM0TRjmAcQD0PE8G-mMU7bj1vsI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: kwsdem
+  api_key: '525216188573441'
+  api_secret: eQ5yL_SHiNOtbsj96xjJ74sQY_E
+  enhance_image_tag: false
+  static_image_support: true
+test:
+  cloud_name: cloudiname
+  api_key: '196278668649748'
+  api_secret: wM0TRjmAcQD0PE8G-mMU7bj1vsI
+  enhance_image_tag: true
+  static_image_support: false

@@ -1,0 +1,50 @@
+<div id="user-info" class="well">
+  <div class="text-center">
+    <%= render 'shared/avatar', user: @user %><br>
+    <h5><%= link_to @user.name, @user %></h5>
+  </div>
+  <h5>
+    <%= fa_icon 'shield' %>
+    <%= pluralize(@user.posts_count, 'post') %>
+  </h5>
+  <% if @user.birthday.present? %>
+    <h5>
+      <%= fa_icon @user.sex %>
+      <%= "#{pluralize(age(@user.birthday), '')} χρονών" %>
+    </h5>
+  <% end %>
+
+  <% if @user.school.present? %>
+    <h5>
+      <%= fa_icon 'graduation-cap' %>
+      <%= pluralize(@user.school, '') %>
+    </h5>
+  <% end %>
+  <% if @user.url.present? %>
+      <h5>
+
+      <% if @user.sex == "male" %>
+        <%= fa_icon 'steam-square' %>
+        <%= link_to "steam profile", @user.url, :target => '_blank' %>
+      <% else %>
+        <%= fa_icon 'heart' %>
+        <%= link_to "heartit profile", @user.url, :target => '_blank' %>
+
+      <% end %>
+      </h5>
+  <% end %>
+
+  <% if @user.location.present? %>
+    <h5>
+      <%= fa_icon 'map-marker' %>
+      <%= @user.location %>
+    </h5>
+  <% end %>
+  <br>
+  <div class="text-center">
+    <% unless is_current_user?(@user) %>
+      <%= render 'follows/form', user: @user %>
+      <h6><%= 'Σας ακολουθεί' if current_user.followed_by?(@user) %></h6>
+    <% end %>
+  </div>
+</div>

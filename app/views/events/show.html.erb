@@ -1,0 +1,24 @@
+<div id="event-<%= @event.id %>" class="event">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+      <%= render @event, remote: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+      <h4>Σχόλια</h4>
+      <hr>
+      <%= render 'comments/form', commentable: @event %>
+      <br>
+      <% if @comments.count<1 %>
+        <div class="comments">
+          <% render('shared/no_resource', resources: 'Comments') %>
+        </div>
+      <% else %>
+        <div class="comments">
+          <%= render(@comments) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

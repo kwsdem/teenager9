@@ -1,0 +1,47 @@
+	<div id="sidebar">
+		<ul>
+			<li class="category">Teenager</li>
+			<li><%= link_to "Πίσω", blog_posts_path %></li>
+			<!-- <li><% link_to "ΣΧΕΤΙΚΑ", about_path %></li> -->
+		</ul>
+	</div>
+
+<div id="main_content">
+	<div id="header">
+		<div class="post_wrapper">
+			<div class="alert">
+				<div id="blog_post_content">
+
+					<div class="form-group">
+						<h1 class="title">
+							<%= @blog_post.title %>
+						</h1>
+					</div>
+
+					<div class="form-group">
+						<% if @blog_post.id == "3" %>
+								<%= cl_image_tag("12_r9boud.jpg") %>
+						<% end %>
+						<% if @blog_post.id == "2" %>
+								<%= cl_image_tag("111_zd07nd.jpg") %>
+						<% end %>
+					</div>
+
+					<div class="form-group">
+						<p class="body">
+							<%= @blog_post.body %>
+						</p>
+					</div>
+
+					<div class="pull-right">
+						<p class="date">
+							<%= @blog_post.created_at.strftime("%D") %>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		

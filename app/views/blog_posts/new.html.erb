@@ -1,0 +1,8 @@
+<% if current_user.try(:blogpublisher?) %>	
+	<div id="page_wrapper">
+		<h1>New Post</h1>
+		<%= render 'form' %>
+	</div>
+<% else %>
+	<h2>Δεν είσαι ο admin. Δεν μπορείς να δημιουργήσεις post.</h2>
+<% end %>

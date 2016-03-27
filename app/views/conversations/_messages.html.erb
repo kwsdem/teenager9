@@ -1,0 +1,14 @@
+<% @receipts.each do |receipt| %>
+    <% message = receipt.message %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <br><%= render 'shared/avatar', user: message.sender %>
+          <%= message.sender.name %></br>
+          <div class="pull-right">
+             <small><b>Ώρα: </b><%=  message.created_at.strftime("%H:%M") %></small></div>
+        </h4>
+        <%= message.body %>
+      </div>
+    </div>
+<% end %>

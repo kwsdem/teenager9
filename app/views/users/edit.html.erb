@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="well">
+      <h3>Επεξεργασία προφίλ</h3>
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label :"Εικόνα προφίλ" %>
+          <br>
+          <%= render 'shared/avatar', user: @user %>
+          <br>
+          <br>
+          <%= f.file_field :avatar %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Εξώφυλλο" %>
+          <br>
+          <%= render 'shared/cover', user: @user %>
+          <br>
+          <%= f.file_field :cover %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Ονομα/πώνυμο" %>
+          <%= f.text_field :name, placeholder: 'Ονομα/πώνυμο', class: 'form-control' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :"Τοποθεσία" %>
+          <%= f.text_field :location, placeholder: 'π.Χ. Πτολεμαΐδα', class: 'form-control' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :"Σχολείο" %><br>
+          <%= f.select :school, noptions_for_seasons, class: 'form-control', prompt: 'Επέλεξε ένα' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :"Γεννέθλια" %>
+          <%= f.date_field :birthday, max: Date.today-4745, min: Date.today-6870, class: 'form-control' %>
+        </div>
+    
+        <div class="form-group">
+          <%= f.label :"Φήλο" %><br>
+          <%= f.select :sex, options_for_seasons, class: 'form-control', prompt: 'Select One' %>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Ενημέρωση', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
